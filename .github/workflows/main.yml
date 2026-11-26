@@ -14,11 +14,14 @@ jobs:
           java-version: '21'
       - name: Build APK
         run: |
-          mkdir -p www && cp index.html www/
+          mkdir -p www assets && cp index.html www/
+          if [ -f logo.png ]; then cp logo.png assets/icon.png; fi
           npm init -y
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/assets
           npx cap add android
+          if [ -f assets/icon.png ]; then npx capacitor-assets generate --android --iconBackgroundColor '#09090b'; fi
           npx cap sync android
+          echo 'dependencies { implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22")) }' >> android/app/build.gradle
           cd android && chmod +x gradlew && ./gradlew assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
