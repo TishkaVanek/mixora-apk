@@ -3,7 +3,7 @@
   "appName": "Mixora",
   "webDir": "www",
   "server": {
-    "url": "https://amvera.tech",
+    "url": "https://mixora-server.onrender.com",
     "cleartext": true
   },
   "android": {
