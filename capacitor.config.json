@@ -1,0 +1,12 @@
+{
+  "appId": "ru.mixora.studio",
+  "appName": "Mixora",
+  "webDir": "www",
+  "server": {
+    "url": "https://amvera.tech",
+    "cleartext": true
+  },
+  "android": {
+    "backgroundColor": "#09090b"
+  }
+}
